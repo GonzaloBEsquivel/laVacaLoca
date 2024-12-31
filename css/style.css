@@ -1,0 +1,232 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400&display=swap');
+
+/* --Colores-- */
+:root {
+    --fuente: "Roboto", sans-serif;
+
+    --main: #efdddd;
+    --tipografia: #8c2f39;
+    --tipografiaClaro: #e8b7b7;
+    --header: #8a817c;
+    --gray: #cdccca;
+}
+
+/* --Globales-- */
+*,
+::after,
+::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+html {
+    font-size: 62.5%;
+}
+body {
+    background-color: var(--header);
+    font-family: var(--fuente);
+}
+h1, h2, h3, h4 {
+    text-align: center;
+    line-height: 1.2;
+
+}
+h1 {
+    font-size: 4rem;
+}
+h2 {
+    font-size: 3.2rem;
+}
+h3 {
+    font-size: 2rem;
+}
+h4 {
+    font-size: 1.7rem;
+}
+/* --Index-- */
+.contenedor-main {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+}
+.logo {
+    color: var(--tipografia)
+}
+.menu-nav {
+    color: var(--tipografiaClaro);
+    display: flex;
+    column-gap: 1.5rem;
+    font-weight: 700;
+    padding: 1rem;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+.menu-nav:hover{
+    color: var(--tipografia);
+}
+/* .active{
+    background-color: var(--main); 
+    color: var(--tipografia);
+    width: 100%;
+} */
+.bi-hand-index-thumb {
+    transform: rotateZ(90deg);
+}
+.menu-carrito {
+    color: #8c2f39;
+    padding: 1rem;
+    margin-top: 5rem;
+}
+.aside {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* align-items: center; */
+    padding: 2rem;
+    padding-right: 0;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    font-size: 1.8rem;
+}
+.lista-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    margin-right: 0;
+    width: 100%;
+}
+.article {
+    background-color: var(--main);
+    margin: 1rem;
+    margin-left: 0;
+    border-radius: 20px;
+    padding: 2rem
+}
+.titulo-principal {
+    color: var(--tipografia);
+    margin-bottom: 5rem;
+    text-shadow: 2px 2px 5px gray;
+}
+.footer {
+    font-size: 1.2rem;
+    color: var(--tipografia);
+    margin-top: 20rem;
+}
+/* --Productos-- */
+.contenedor-article{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+}
+.producto-imagen {
+    max-width: 100%;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;}
+.producto {
+    background-color: white;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+.producto-detalles {
+    padding: 0.75rem;
+    text-align: center;
+    line-height: 2.5rem;
+}
+.producto-precio {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+.agregar-carrito {
+    border: none;
+    padding: 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    text-transform: uppercase;
+    background-color: var(--gray);
+    color: white;
+    transition: color .3s;
+}
+.agregar-carrito:hover {
+    color: var(--tipografia)
+}
+/* --CARRITO-- */
+.boton-volver{
+    color: var(--tipografiaClaro);
+}
+.carrito-vacio {
+    color: var(--tipografia);
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+.carrito-productos {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+.producto-carrito{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--gray);
+    border-radius: 1rem;
+    padding: 0.5rem
+}
+.img-producto-carrito{
+    width: 8rem;
+    border-radius: 1rem;
+}
+.producto-carrito-eliminar{
+    background-color: transparent;
+    border: none;
+    color: var(--tipografia);
+    font-size: 2rem;
+    padding-right: 1rem;
+    cursor: pointer;
+
+}
+.carrito-acciones {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2.5rem;
+}
+.boton-vaciar-carrito{
+    border: none;
+    padding:1.2rem;
+    border-radius: 2rem;
+    background-color: var(--gray);
+    color: var(--tipografia);
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+.total-carrito{
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    background-color: var(--gray);
+    border-radius: 2rem;
+}
+.total-carrito-valor{
+    display: flex;
+    gap: 1rem;
+    font-size: 1.5rem;
+    padding-left: 1rem;
+    color: var(--tipografia);
+    font-weight: 700;
+}
+.boton-comprar{
+    border: none;
+    padding:1.2rem;
+    border-radius: 2rem;
+    background-color: var(--header);
+    color: var(--tipografiaClaro);
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+.disabled {
+    display: none;
+}
