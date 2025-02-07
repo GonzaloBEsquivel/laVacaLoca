@@ -1,135 +1,11 @@
-const productos = [
-    {
-        id: "cerdo-01",
-        titulo: "Pechito de cerdo",
-        imagen: "./img/cerdo/c-pechito.jpg",
-        categoria: {
-            id: "cerdo",
-            nombre: "Cerdo"
-        },
-        precio: 7999,
-    },
-    {
-        id: "cerdo-02",
-        titulo: "Pechito entero",
-        imagen: "./img/cerdo/c-pechito-entero.jpg",
-        categoria: {
-            id: "cerdo",
-            nombre: "Cerdo"
-        },
-        precio: 6599,
-    },
-    {
-        id: "vaca-01",
-        titulo: "Cuadril",
-        imagen: "./img/vacuna/v-churrasco-cuadril.jpg",
-        categoria: {
-            id: "vaca",
-            nombre: "Vacuna",
-        },
-        precio: 9499,
-    },
-    {
-        id: "vaca-02",
-        titulo: "Bife de costilla",
-        imagen: "./img/vacuna/v-bife-costilla.jpg",
-        categoria: {
-            id: "vaca",
-            nombre: "Vacuna",
-        },
-        precio: 7499,
-    },
-    {
-        id: "vaca-03",
-        titulo: "Ojo de bife",
-        imagen: "./img/vacuna/v-ojo-bife.jpg",
-        categoria: {
-            id: "vaca",
-            nombre: "Vacuna",
-        },
-        precio: 8599,
-    },
-    {
-        id: "vaca-04",
-        titulo: "Picada especial",
-        imagen: "./img/vacuna/v-picada-especial.jpg",
-        categoria: {
-            id: "vaca",
-            nombre: "Vacuna",
-        },
-        precio: 6999,
-    },
-    {
-        id: "vaca-05",
-        titulo: "Hamburgusas",
-        imagen: "./img/vacuna/v-hamburguesa.jpg",
-        categoria: {
-            id: "vaca",
-            nombre: "Vacuna",
-        },
-        precio: 6299,
-    },
-    {
-        id: "vaca-06",
-        titulo: "Osobuco",
-        imagen: "./img/vacuna/v-osobuco.jpg",
-        categoria: {
-            id: "vaca",
-            nombre: "Vacuna",
-        },
-        precio: 4999,
-    },
-    {
-        id: "pollo-01",
-        titulo: "Suprema",
-        imagen: "./img/pollo/p-suprema.jpg",
-        categoria: {
-            id: "pollo",
-            nombre: "Pollo",
-        },
-        precio: 6799,
-    },
-    {
-        id: "pollo-02",
-        titulo: "Pata de pollo",
-        imagen: "./img/pollo/p-pata.jpg",
-        categoria: {
-            id: "pollo",
-            nombre: "Pollo",
-        },
-        precio: 3999,
-    },
-    {
-        id: "pollo-03",
-        titulo: "Pata y muslo",
-        imagen: "./img/pollo/p-pata-muslo.jpg",
-        categoria: {
-            id: "pollo",
-            nombre: "Pollo",
-        },
-        precio: 3799,
-    },
-    {
-        id: "pollo-04",
-        titulo: "Cuarto trasero",
-        imagen: "./img/pollo/p-cuarto-trasero.jpg",
-        categoria: {
-            id: "pollo",
-            nombre: "Pollo",
-        },
-        precio: 3199,
-    },
-    {
-        id: "pollo-05",
-        titulo: "Pollo entero",
-        imagen: "./img/pollo/p-pollo-entero.jpg",
-        categoria: {
-            id: "pollo",
-            nombre: "pollo",
-        },
-        precio: 3499,
-    }
-];
+let productos = [];
+
+fetch("./js/productos.json")
+    .then(response => response.json())
+    .then(data => {
+        productos = data;
+        cargarProductos(productos)
+    })
 
 const contenedorProductos = document.querySelector("#contenedor-productos");
 const botonesCategorias = document.querySelectorAll(".boton-categoria");
@@ -157,7 +33,6 @@ function cargarProductos(productosElegidos) {
     })
     actualizarBotonesAgregar();
 };
-cargarProductos(productos);
 
 botonesCategorias.forEach(boton => {
     boton.addEventListener("click", (e) => {
@@ -199,6 +74,27 @@ if(productosEnCarritosLS) {
 }
 
 function agregarAlCarrito(e) {
+
+    Toastify({
+        text: "Producto agregado",
+        duration: 1500,
+        close: true,
+        gravity: "top", // `top` or `bottom`
+        position: "right", // `left`, `center` or `right`
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        style: {
+            background: "linear-gradient(to right, #684747,rgb(172, 132, 132))",
+            borderRadius: '2rem',
+            textTransform: 'uppercase',
+            fontSize: '.75rem',
+        },
+        offset: {
+            x: '1.5rem', // horizontal axis - can be a number or a string indicating unity. eg: '2em'
+            y: '1.5rem' // vertical axis - can be a number or a string indicating unity. eg: '2em'
+        },
+        onClick: function(){} // Callback after click
+    }).showToast();
+
     const idBoton = e.currentTarget.id;
     const productoAgregado = productos.find(producto => producto.id === idBoton);
 
